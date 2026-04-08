@@ -7,14 +7,22 @@ var suma = 0, resta = 0, división = 0, multiplicación = 0, potencia = 0;
 
 function ejercicio2(){
     var valores = [true, 5, false, "hola", "adios",2];
-    
+
+    if(valores[3] < valores[4])
+        {
+        console.log(valores[4], " es menor que ", valores[3]);
+    }
+
+    else if(valores[3] > valores[4]){
+        console.log(valores[3], " es mayor que ", valores[4]);
+    }
+
     suma = (valores[1] + valores[5])
     resta = (valores[1] - valores[5])
     división = (valores[1] / valores[5])
     multiplicación = (valores[1] * valores[5])
     potencia = (valores[1] ** valores[5])
 
-    console.log("el texto mayor es: ", valores[4]);
     console.log("suma: ", suma);
     console.log("resta: ", resta);
     console.log("división: ", división);
@@ -31,7 +39,7 @@ function ejercicio3(){
 
     if(numero1 < numero2) {
 
-    console.log("numero1 no es mayor que numero2");
+    console.log(numero1 + " no es mayor que " + numero2);
 
  }
     if(numero2 > 0) {
@@ -51,6 +59,7 @@ function ejercicio4(){
     var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K','E', 'T'];
 
     var dni = prompt("Escribe tu DNI: ")
+
 
     if(dni == null || isNaN(dni) || dni == "" || dni < 0 || dni > 99999999)
     {
@@ -87,21 +96,21 @@ function ejercicio5(){
 
 function ejercicio6(){
 
-    var numero = prompt("ingrese un número:");
+    var numero = prompt("ingrese un número:")
      
     if(numero == null || isNaN(numero) || numero == "" || numero == 0)
     {
-        console.log("Lo ingresado no es valido");
+        console.log("Lo ingresado no es valido")
     }
 
-    else if(numero % 2 === 0){
+    else if(numero % 2 == 0){
 
-        document.writeln("el número es: ", numero);
-        document.writeln("el número es par");
+        console.log("el número es: ", numero)
+        console.log("el número es par")
     }
 
     else{
-        document.writeln("el numero es impar");
+        console.log("el numero es impar")
     }
 }
 
