@@ -26,12 +26,13 @@ function ejercicio2(){
 }
 function ejercicio3(){
 
-if(numero1 < numero2) {
-
     var numero1 = 5;
     var numero2 = 8;
 
-console.log("numero1 no es mayor que numero2");
+    if(numero1 < numero2) {
+
+    console.log("numero1 no es mayor que numero2");
+
  }
     if(numero2 > 0) {
         console.log("numero2 es positivo");
@@ -70,7 +71,7 @@ function ejercicio5(){
     var resultado = 1;
     var numero = prompt("ingrese un número ");
 
-    if(dni == null || isNaN(dni) || dni == "" || numero == 0){
+    if(numero == null || isNaN(numero) || numero == "" || numero == 0){
         console.log("el caracter ingresado no es valido");
     }
 
@@ -143,9 +144,16 @@ function ejercicio8(){
 function ejercicio10(){
     let arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-    for(i = 0; i < 36000; i++)
-    {
-        let primerdado = Math.floor(Math.random() * 6) + 1;
-        let segundodado = Math.floor(Math.random() * 6) + 1;
+    for(var i = 0; i < 36000; i++){
+        let dado1 = Math.floor(Math.random() * 6) + 1;
+        let dado2 = Math.floor(Math.random() * 6) + 1;
+        let suma = dado1 + dado2;
+        arr[suma] = arr[suma] + 1;
+    }
+
+    console.log(arr);
+
+    for(let j = 2; j < 13; j++){
+        console.log("El número " + j + " salió: " + arr [j] + " veces en total.");
     }
 }
