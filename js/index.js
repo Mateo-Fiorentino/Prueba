@@ -149,6 +149,64 @@ function ejercicio8(){
         console.log("El texto ingresado no es un palindromo");
     }
 }
+/*EJERCICIO 9
+Definir la siguiente jerarquía de objetos, haciendo uso de los prototipos de JavaScript:
+Objeto Persona con las propiedades nombre, edad y género, y el método obtDetalles(), que
+muestra por pantalla las propiedades de la persona.
+Objeto Estudiante, que hereda de Persona, e incluye las propiedades curso y grupo y el
+método registrar().
+Objeto Profesor, que hereda de Persona, e incluye las propiedades asignatura y nivel y el
+método asignar().
+Crear los objetos y casos de prueba necesarios para comprobar el correcto funcionamiento
+de la jerarquía.*/
+function ejercicio9(){
+    let p1= new Persona ("mauro", 67, "Masculino");
+    console.log(p1.obtDetalles());
+
+    let p2 = new Estudiante ("Lautaro", 15, "Femenino", "Programación", "1°A");
+    console.log(p2.obtDetalles());
+    console.log(p2.registrar());
+
+    let p3 = new Profesor ("Santiago", 45, "Masculino", "Matemática", "Secundario");
+    console.log(p3.obtDetalles());
+    console.log(p3.asignar());
+}
+
+    function Persona(nombre, edad, genero){
+        this.nombre = nombre;
+        this.edad = edad;
+        this.genero = genero;
+    }
+
+    Persona.prototype.obtDetalles = function(){
+        console.log(`Nombre: ${this.nombre}, Edad: ${this.edad}, Género: ${this.genero}`);
+    }
+
+    function Estudiante(nombre, edad, genero, curso, grupo){
+        Persona.call(this, nombre, edad, genero);
+        this.curso = curso;
+        this.grupo = grupo;
+    }
+
+    Estudiante.prototype = Object.create(Persona.prototype);
+    Estudiante.prototype.constructor = Estudiante;
+
+    Estudiante.prototype.registrar = function(){
+        console.log(`El estudiante se ha registrado en el curso: ${this.curso} y grupo: ${this.grupo}`);
+    }
+
+    function Profesor(nombre, edad, genero, asignatura, nivel){
+        Persona.call(this, nombre, edad, genero);
+        this.asignatura = asignatura;
+        this.nivel = nivel;
+    }
+
+    Profesor.prototype = Object.create(Persona.prototype);
+    Profesor.prototype.constructor = Profesor;
+
+    Profesor.prototype.asignar = function(){
+        console.log(`El profesor ${this.nombre} ha sido asignado a la asignatura: ${this.asignatura} con nivel: ${this.nivel}`);
+    }
 
 function ejercicio10(){
     let arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
